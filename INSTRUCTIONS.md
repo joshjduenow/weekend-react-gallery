@@ -23,10 +23,11 @@ You'll need to:
 
 ✅ To render images inside your React app, this totally works. Check out the example in `App.jsx`:
 
-✅ ```jsx
+* ```jsx
     <img src="images/goat_small.jpg"/>
   ```
 
+* 
 ✅ Because the `public/` folder is where our static assets live, all of your `<img>` elements' `src=` attributes will look inside the `public/` folder for the filepath you provide.
 
 
@@ -44,14 +45,17 @@ Users should be able to:
 
 To practice passing values as `props` in React, you must build your gallery app using multiple components: `App`, `GalleryList`, and `GalleryItem`.
 
-* `App`: Represents the overall application or site.
-  * The App must have a `data-testid="app"` attribute
+* 
+✅ `App`: Represents the overall application or site.
+  * 
+  ✅ The App must have a `data-testid="app"` attribute
 
 * `GalleryList`: Represents the gallery of images.
-  * The GalleryList must have a `data-testid="galleryList"` attribute
+  * ✅The GalleryList must have a `data-testid="galleryList"` attribute
 
 * `GalleryItem` - represents a single image in the gallery.
-  * Each GalleryItem must have a `data-testid="galleryItem"` attribute
+  * 
+  ✅Each GalleryItem must have a `data-testid="galleryItem"` attribute
   * Each GalleryItem must display the title.
   * Each GalleryItem must toggle between showing the image and the description when clicked:
     * When clicking on a GalleryItem, the description shows and the image hides, and vice versa upon clicking again.

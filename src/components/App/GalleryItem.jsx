@@ -29,6 +29,7 @@ function GalleryItem({gallery}) {
 
   return (
     <li
+      data-testid="galleryItem"
       onClick={toggleGalleryItem}
       className={cereal.isTasty ? 'tasty' : ''}
     >
