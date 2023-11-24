@@ -5,7 +5,7 @@ const router = express.Router();
 router.put('/like/:id', (req, res) => {
   // code here
     let idToUpdate = req.params.id;
-    let queryText = 'UPDATE "gallery" SET "likes" = "likes" + 1 WHERE "id" = $1;';
+    let queryText = 'UPDATE gallery SET likes = likes + 1 WHERE id = $1;';
 
     const sqValues = [idToUpdate]
     pool.query(queryText, sqValues)
