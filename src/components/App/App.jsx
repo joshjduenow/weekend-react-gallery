@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import GalleryItem from './GalleryItem';
 
 function App() {
   useEffect(() => {
@@ -24,7 +25,7 @@ function App() {
     return (
       <div data-testid="app">
         <header>
-          <h1>React Gallery</h1>
+          <h1>Mac & Cheese Gallery</h1>
         </header>
 
         <p>The gallery goes here!</p>
