@@ -1,14 +1,33 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function App() {
+  useEffect(() => {
+    fetchGallery()
+  }, []) // 👈 the "stop sign"
+
+  const [gallery, setGallery] = useState([])
+ 
+  const fetchGallery = () => {
+    axios({
+      method: 'GET',
+      url: '/gallery'
+    })
+      .then((response) => {
+        setGallery(response.data)
+      })
+      .catch((error) => {
+        console.log('fetchGallery fail:', error);
+      })
+  }
     return (
-      <div>
+      <div data-testid="app">
         <header>
           <h1>React Gallery</h1>
         </header>
 
         <p>The gallery goes here!</p>
-        <img src="images/goat_small.jpg"/>
         <img style = {{width: 150, height: 150}} src="images/bucket_mac.jpeg"/>
         <img style = {{width: 150, height: 150}} src="images/green_mac.jpeg"/>
         <img style = {{width: 150, height: 150}} src="images/sheet_pan_thick.jpeg"/>

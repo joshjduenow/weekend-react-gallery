@@ -5,29 +5,29 @@ Before you get started make sure to look through the code that has been provided
 ## Get Set Up:
 
 You'll need to:
-* `npm install` to install the dependencies specified by `package.json`.
-* Use Postico to create a new database named `react-gallery`.
-* Run the SQL queries found in `database.sql` in order to:
-  * Create the `gallery` table.
-  * Seed the `gallery` table with one example gallery item.
-* Run `npm run server` to start the Express server with `nodemon`.
-* Run `npm run client` to start the React app.
-* Run `npm test` to verify that the automated test suite runs. You should see something like this:
-  * <img src="instructions_images/test-run.png" width="400px">
+✅ `npm install` to install the dependencies specified by `package.json`.
+✅Use Postico to create a new database named `react-gallery`.
+✅ Run the SQL queries found in `database.sql` in order to:
+  ✅ Create the `gallery` table.
+  ✅ Seed the `gallery` table with one example gallery item.
+✅ Run `npm run server` to start the Express server with `nodemon`.
+✅ Run `npm run client` to start the React app.
+✅ Run `npm test` to verify that the automated test suite runs. You should see something like this:
+  ✅ <img src="instructions_images/test-run.png" width="400px">
 
 #### Add Your Own Seed Data:
 
-Before you get started, add a few images to the `public/images` folder and modify the `INSERT` statement in the `database.sql` file to add your images to the `gallery` table. (You'll only need to provide `url`, `title`, and `description` values, because `likes` defaults to `0`.)
+✅ Before you get started, add a few images to the `public/images` folder and modify the `INSERT` statement in the `database.sql` file to add your images to the `gallery` table. (You'll only need to provide `url`, `title`, and `description` values, because `likes` defaults to `0`.)
 
 ## Quick Note on Rendering Images:
 
-To render images inside your React app, this totally works. Check out the example in `App.jsx`:
+✅ To render images inside your React app, this totally works. Check out the example in `App.jsx`:
 
-* ```jsx
+✅ ```jsx
     <img src="images/goat_small.jpg"/>
   ```
 
-* Because the `public/` folder is where our static assets live, all of your `<img>` elements' `src=` attributes will look inside the `public/` folder for the filepath you provide.
+✅ Because the `public/` folder is where our static assets live, all of your `<img>` elements' `src=` attributes will look inside the `public/` folder for the filepath you provide.
 
 
 ## Base Mode:
