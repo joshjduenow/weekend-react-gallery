@@ -1,40 +1,55 @@
-import GalleryItem from "./GalleryItem";
+import { useState } from "react";
+import axios from "axios";
 
-function GalleryList({ gallery }) {
-  console.log(gallery);
+function GalleryItem({ id, url, title, description, likes, getList }) {
+  const [showDesc, setShowDesc] = useState(false);
+
+  const toggleShowDesc = () => {
+    setShowDesc(!showDesc);
+  };
+
+  const addLike = () => {
+    console.log("hi", id);
+    axios
+      .put(`/gallery/like/${id}`)
+      .then((response) => {
+        getList();
+      })
+      .catch((err) => {
+        alert("error updating like");
+        console.log(err);
+      });
+  };
+
+  const shownContent = () => {
+    if (showDesc) {
+      return (
+        <div
+          data-testid="description"
+          style={{ height: 150, width: 150, textAlign: "center" }}
+        >
+          {description}
+        </div>
+      );
+    } else {
+      return <img src={url} height={150} width={150} />;
+    }
+  };
 
   return (
-    <>
-      <h2 data-testid="galleryList">Mac & Cheese:</h2>
-      <ul>
-        <img style={{ width: 150, height: 150 }} src="images/bucket_mac.jpeg" />
-        <button>Ok</button>
-        <img style={{ width: 150, height: 150 }} src="images/green_mac.jpeg" />
-        <button>Ok</button>
-        <img
-          style={{ width: 150, height: 150 }}
-          src="images/sheet_pan_thick.jpeg"
-        />
-        <button>Ok</button>
-        <img
-          style={{ width: 150, height: 150 }}
-          src="images/sheet_pans_mac.jpeg"
-        />
-        <button>Ok</button>
-        <img
-          style={{ width: 150, height: 150 }}
-          src="images/shredded_cheese.jpeg"
-        />
-        <button>Ok</button>
-        <img
-          style={{ width: 150, height: 150 }}
-          src="images/singles_mac.jpeg"
-        />
-        <button>Ok</button>
-      </ul>
-    </>
+    <div data-testid="galleryItem">
+      <h4>{title}</h4>
+      <div data-testid="toggle" onClick={toggleShowDesc}>
+        {shownContent()}
+      </div>
+      <div>
+        {likes} likes{" "}
+        <button data-testid="like" onClick={addLike}>
+          Add like
+        </button>
+      </div>
+    </div>
   );
 }
-//{cereals.map((cereal) => {return <CerealItem key={cereal.id} cereal={cereal} />;})
 
-export default GalleryList;
+export default GalleryItem;

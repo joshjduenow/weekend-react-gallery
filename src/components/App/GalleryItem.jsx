@@ -1,41 +1,23 @@
-import { useState } from 'react';
+import GalleryItem from "../GalleryItem/GalleryItem";
 
-function GalleryItem({gallery}) {
-  const [isGalleryItem, setIsGalleryItem] = useState('')
-
-  const toggleGalleryItem = () => {
-    setIsGalleryItem(!isGalleryItem)
-  }
-
-  const displayText = () => {
-    if (isGalleryItem) {
-      return (
-        <>
-          NOM NOM NOM
-          <br/>
-          NOM NOM NOM
-        </>
-      )
-    } else {
-      return (
-        <>
-          {gallery.url}
-          <br/>
-          <em>{gallery.description}</em>
-        </>
-      )
-    }
-  }
-
+function GalleryList({ photo, getList }) {
   return (
-    <li
-      data-testid="galleryItem"
-      onClick={toggleGalleryItem}
-      className={cereal.isTasty ? 'tasty' : ''}
-    >
-      {displayText()}
-    </li>
-  )
+    <div data-testid="galleryList" className="ItemBody">
+      {photo.map((item) => {
+        return (
+          <GalleryItem
+            key={item.id}
+            id={item.id}
+            url={item.url}
+            title={item.title}
+            description={item.description}
+            likes={item.likes}
+            getList={getList}
+          />
+        );
+      })}
+    </div>
+  );
 }
 
-export default GalleryItem;
+export default GalleryList;

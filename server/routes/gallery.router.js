@@ -1,36 +1,43 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
+const pool = require("../modules/pool.js");
 
 // PUT /gallery/like/:id
-router.put('/like/:id', (req, res) => {
+router.put("/like/:id", (req, res) => {
   // code here
-    let idToUpdate = req.params.id;
-    let queryText = 'UPDATE gallery SET likes = likes + 1 WHERE id = $1;';
-
-    const sqValues = [idToUpdate]
-    pool.query(queryText, sqValues)
-        .then((result) => {
-            res.sendStatus(200);
-        })
-        .catch((dbError) => {
-            console.log("likes update failed", dbError);
-            res.sendStatus(500);
-        })
+  const sqlText = `
+  UPDATE "gallery"
+  SET "likes" = "likes"+1
+  WHERE "id" = $1;`;
+  const sqlValues = [req.params.id];
+  pool
+    .query(sqlText, sqlValues)
+    .then((result) => {
+      console.log("Updated likes with ID", req.params.id);
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log("Error in database query:", sqlText);
+      res.sendStatus(500);
+    });
 });
 
 // GET /gallery
-router.get('/', (req, res) => {
+router.get("/", (req, res) => {
   // code here
-  const sqlText = `SELECT * FROM gallery ORDER BY id;`;
-  pool.query(sqlText)
-      .then((result) => {
-          console.log(`Got stuff back from the database`, result.rows);
-          res.send(result.rows);
-      })
-      .catch((error) => {
-          console.log(`Error making database query ${sqlText}`, error);
-          res.sendStatus(500); // Good server always responds
-      })
+  const sqlText = `
+  SELECT * FROM "gallery"
+  ORDER BY "id"`;
+  pool
+    .query(sqlText)
+    .then((result) => {
+      console.log("Got things back:", result.rows);
+      res.send(result.rows);
+    })
+    .catch((error) => {
+      console.log("Error in database query:", sqlText);
+      res.sendStatus(500);
+    });
 });
 
 module.exports = router;
