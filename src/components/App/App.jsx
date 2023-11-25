@@ -1,33 +1,36 @@
-import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import GalleryList from "./GalleryList";
 
 function App() {
-  useEffect(() => {
-    fetchGallery();
-  }, []); // 👈 the "stop sign"
+  const [photo, setPhoto] = useState([]);
 
-  const [gallery, setGallery] = useState([]);
-
-  const fetchGallery = () => {
-    axios({
-      method: "GET",
-      url: "/gallery",
-    })
+  const getList = () => {
+    axios
+      .get("/gallery")
       .then((response) => {
-        setGallery(response.data);
+        setPhoto(response.data);
       })
-      .catch((error) => {
-        console.log("fetchGallery fail:", error);
+      .catch((err) => {
+        alert("error getting list");
+        console.log(err);
       });
   };
-  return (
-      <div data-testid="app">
-        <GalleryList />
-      </div>
 
-   
+  useEffect(() => {
+    getList();
+  }, []);
+
+  return (
+    <div data-testid="app">
+      <header>
+        <h1>React Gallery</h1>
+      </header>
+
+      <p>The gallery goes here!</p>
+
+      <GalleryList photo={photo} getList={getList} />
+    </div>
   );
 }
 
