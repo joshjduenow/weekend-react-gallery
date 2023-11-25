@@ -31,7 +31,9 @@ function App() {
     
       <h2>Let's See your Mac & Cheese</h2>
 
-      <GalleryList photo={photo} getList={getList} />
+      <GalleryList
+       photo={photo} 
+       getList={getList} />
     </div>
   );
 }

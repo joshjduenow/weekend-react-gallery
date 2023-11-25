@@ -26,13 +26,13 @@ function GalleryItem({ id, url, title, description, likes, getList }) {
       return (
         <div
           data-testid="description"
-          style={{ height: 200, width: 200, textAlign: "center" }}
+          style={{ height: 200, width: 200, textAlign: "center"}}
         >
           {description}
         </div>
       );
     } else {
-      return <img src={url} height={200} width={200} />;
+      return <img src={url} height={300} width={300} />;
     }
   };
 
@@ -40,9 +40,9 @@ function GalleryItem({ id, url, title, description, likes, getList }) {
     <div 
         
         data-testid="galleryItem" 
-        className="ItemIndividual"
+        className="galleryItem"
     >
-      <h4>{title}</h4>
+      <h4 style={{ width: 300, textAlign: "center"}}>{title}</h4>
       <div 
         data-testid="toggle" 
         onClick={toggleSeeDesc}

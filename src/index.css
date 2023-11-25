@@ -7,8 +7,18 @@ body {
 h2 {
   padding-top: 50px;
   text-align: center;
-  color: rgb(255, 213, 0)
+  color: rgb(255, 213, 0);
 }
- div {
-  color: rgb(255, 213, 0)
- }
+div {
+  color: rgb(255, 213, 0);
+}
+
+.galleryList {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+}
+
+.galleryItem {
+  margin: 5em;
+}
