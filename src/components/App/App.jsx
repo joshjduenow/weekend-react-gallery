@@ -23,10 +23,10 @@ function App() {
 
   return (
     <div data-testid="app">
-      <header>
-        <h1>React Gallery</h1>
+      <header class="p-5 bg-primary text-warning text-center">
+        <h1>Mac & Cheese Gallery</h1>
       </header>
-
+    
       <p>The gallery goes here!</p>
 
       <GalleryList photo={photo} getList={getList} />

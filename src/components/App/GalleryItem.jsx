@@ -2,10 +2,10 @@ import { useState } from "react";
 import axios from "axios";
 
 function GalleryItem({ id, url, title, description, likes, getList }) {
-  const [showDesc, setShowDesc] = useState(false);
+  const [seeDesc, setSeeDesc] = useState(false);
 
-  const toggleShowDesc = () => {
-    setShowDesc(!showDesc);
+  const toggleSeeDesc = () => {
+    setSeeDesc(!seeDesc);
   };
 
   const addLike = () => {
@@ -22,30 +22,30 @@ function GalleryItem({ id, url, title, description, likes, getList }) {
   };
 
   const shownContent = () => {
-    if (showDesc) {
+    if (seeDesc) {
       return (
         <div
           data-testid="description"
-          style={{ height: 150, width: 150, textAlign: "center" }}
+          style={{ height: 200, width: 200, textAlign: "center" }}
         >
           {description}
         </div>
       );
     } else {
-      return <img src={url} height={150} width={150} />;
+      return <img src={url} height={200} width={200} />;
     }
   };
 
   return (
     <div data-testid="galleryItem" className="ItemIndividual">
       <h4>{title}</h4>
-      <div data-testid="toggle" onClick={toggleShowDesc}>
+      <div data-testid="toggle" onClick={toggleSeeDesc}>
         {shownContent()}
       </div>
       <div>
-        {likes} likes{" "}
-        <button data-testid="like" onClick={addLike}>
-          Add like
+        {likes} Nice👍{" "}
+        <button data-testid="like" class="btn btn-warning" onClick={addLike}>
+          Ok 🧀
         </button>
       </div>
     </div>
