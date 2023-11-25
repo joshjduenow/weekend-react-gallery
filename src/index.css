@@ -2,5 +2,13 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: rgb(12, 12, 126);
 }
-
+h2 {
+  padding-top: 50px;
+  text-align: center;
+  color: rgb(255, 213, 0)
+}
+ div {
+  color: rgb(255, 213, 0)
+ }

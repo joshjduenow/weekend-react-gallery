@@ -2,7 +2,10 @@ import GalleryItem from "./GalleryItem";
 
 function GalleryList({ photo, getList }) {
   return (
-    <div data-testid="galleryList" className="ItemBody">
+    <div 
+        data-testid="galleryList" 
+        className="ItemBody"
+        >
       {photo.map((item) => {
         return (
           <GalleryItem

@@ -22,12 +22,14 @@ function App() {
   }, []);
 
   return (
-    <div data-testid="app">
+    <div 
+      data-testid="app"
+      >
       <header class="p-5 bg-primary text-warning text-center">
         <h1>Mac & Cheese Gallery</h1>
       </header>
     
-      <p>The gallery goes here!</p>
+      <h2>Let's See your Mac & Cheese</h2>
 
       <GalleryList photo={photo} getList={getList} />
     </div>

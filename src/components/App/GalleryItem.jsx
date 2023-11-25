@@ -37,15 +37,25 @@ function GalleryItem({ id, url, title, description, likes, getList }) {
   };
 
   return (
-    <div data-testid="galleryItem" className="ItemIndividual">
+    <div 
+        
+        data-testid="galleryItem" 
+        className="ItemIndividual"
+    >
       <h4>{title}</h4>
-      <div data-testid="toggle" onClick={toggleSeeDesc}>
+      <div 
+        data-testid="toggle" 
+        onClick={toggleSeeDesc}
+      >
         {shownContent()}
       </div>
       <div>
         {likes} Nice👍{" "}
-        <button data-testid="like" class="btn btn-warning" onClick={addLike}>
-          Ok 🧀
+        <button 
+            data-testid="like" 
+            class="btn btn-warning" 
+            onClick={addLike}>
+            Ok 🧀
         </button>
       </div>
     </div>
