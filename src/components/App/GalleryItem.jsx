@@ -9,7 +9,7 @@ function GalleryItem({ id, url, title, description, likes, getList }) {
   };
 
   const addLike = () => {
-    console.log("hi", id);
+    console.log("what are you", id);
     axios
       .put(`/gallery/likes/${id}`)
       .then((response) => {

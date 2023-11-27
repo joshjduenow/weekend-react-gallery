@@ -17,8 +17,10 @@ div {
   display: flex;
   flex-wrap: wrap;
   max-width: 1200px;
+
 }
 
 .galleryItem {
   margin: 5em;
+
 }
