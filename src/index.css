@@ -21,10 +21,12 @@ div {
 }
 
 .galleryItem {
+  text-align: right;
   margin: 5em;
   border-style: ridge;
   border-radius: 25px;
   border-color: rgb(255, 213, 0);
   border-width: 20px;
+  padding: 15px;
 
 }
